@@ -14,6 +14,7 @@ jobs:
         with:
           compose-file: 'docker-compose.yml'
           compose-flags: '--env-file config/config.env up --build'
+          service: ''
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
