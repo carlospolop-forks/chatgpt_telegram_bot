@@ -6,6 +6,7 @@ import html
 import json
 from datetime import datetime
 import openai
+import os
 
 import telegram
 from telegram import (
@@ -647,6 +648,9 @@ async def post_init(application: Application):
     ])
 
 def run_bot() -> None:
+    print("================")
+    print("This is the token:", config.telegram_token)
+    print("This is the token env:", os.getenv("TELEGRAM_TOKEN"))
     application = (
         ApplicationBuilder()
         .token(config.telegram_token)
