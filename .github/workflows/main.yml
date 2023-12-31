@@ -1,4 +1,4 @@
-ame: botpeas_action
+name: botpeas_action
 
 on:
   schedule:
