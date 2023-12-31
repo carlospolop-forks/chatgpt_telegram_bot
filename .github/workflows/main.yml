@@ -10,11 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: adrielcodeco/docker-compose-run-action@v1
-        with:
-          compose-file: 'docker-compose.yml'
-          compose-flags: '--env-file config/config.env up --build'
-          service: ''
+      - name: Start containers
+        run: docker-compose --env-file config/config.env up --build
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
