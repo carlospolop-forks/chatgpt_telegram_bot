@@ -11,7 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Create config
-        run: echo "" >> config/config.env && echo -e "\nTELEGRAM_TOKEN=$TELEGRAM_TOKEN" >> config/config.env && echo "OPENAI_KEY=$OPENAI_KEY" >> config/config.env; cat config/config.env
+        run: |
+          echo "" >> config/config.yml && echo -e "\ntelegram_token=\"$TELEGRAM_TOKEN\"" >> config/config.yml && echo "openai_api_key=\"$OPENAI_KEY\"" >> config/config.yml; cat config/config.yml
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
