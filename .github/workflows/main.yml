@@ -10,6 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Create config
+        run: echo "TELEGRAM_TOKEN=$TELEGRAM_TOKEN" >> config/config.env && echo "OPENAI_KEY=$OPENAI_KEY" >> config/config.env
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
       - name: Start containers
         run: docker-compose --env-file config/config.env up --build -e TELEGRAM_TOKEN=$TELEGRAM_TOKEN -e OPENAI_KEY=$OPENAI_KEY
         env:
