@@ -16,7 +16,7 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
       - name: Start containers
-        run: docker-compose --env-file config/config.env up --build -e TELEGRAM_TOKEN=$TELEGRAM_TOKEN -e OPENAI_KEY=$OPENAI_KEY
+        run: docker-compose --env-file config/config.env up --build
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
