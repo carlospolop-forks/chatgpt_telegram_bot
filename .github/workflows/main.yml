@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Create config
-        run: echo "TELEGRAM_TOKEN=$TELEGRAM_TOKEN" >> config/config.env && echo "OPENAI_KEY=$OPENAI_KEY" >> config/config.env; cat config/config.env
+        run: echo "" >> config/config.env && echo -e "\nTELEGRAM_TOKEN=$TELEGRAM_TOKEN" >> config/config.env && echo "OPENAI_KEY=$OPENAI_KEY" >> config/config.env; cat config/config.env
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
