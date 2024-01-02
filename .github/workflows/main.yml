@@ -17,7 +17,7 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
       - name: Start containers
-        run: docker-compose --env-file config/config.env up --build
+        run: timeout 21600 docker-compose --env-file config/config.env up --build
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
